@@ -8,6 +8,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute";
 import ApplyDoctor from "./pages/ApplyDoctor";
 import NotificationPage from "./pages/NotificationPage";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import Users from "./pages/admin/Users";
 import Doctors from "./pages/admin/Doctors";
 import Profile from "./pages/doctor/Profile";
@@ -16,6 +18,19 @@ import Appointments from "./pages/Appointments";
 import DoctorAppointments from "./pages/doctor/DoctorAppointments";
 function App() {
   const { loading } = useSelector((state) => state.alerts);
+  const [message, setMessage] = useState("");
+    useEffect(() => {
+  axios
+    .get("/api/test")
+    .then((res) => {
+      console.log("Backend Response:", res.data);   // Log here
+      setMessage(res.data.message);
+    })
+    .catch((err) => {
+      console.error("API Error:", err);
+    });
+}, []);
+
   return (
     <>
       <BrowserRouter>

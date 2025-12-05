@@ -22,6 +22,10 @@ app.use("/api/v1/user", require("./routes/userRoutes"));
 app.use("/api/v1/admin", require("./routes/adminRoutes"));
 app.use("/api/v1/doctor", require("./routes/doctorRoutes"));
 
+app.get("/api/test", (req, res) => {
+  res.json({ message: "Hello from backend!" });
+});
+
 //port
 const port = process.env.PORT || 8080;
 //listen port

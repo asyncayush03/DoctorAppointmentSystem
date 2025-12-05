@@ -10,7 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   //form handler
-  axios.get("/api/test");
+  // axios.get("/api/test");
   const onfinishHandler = async (values) => {
     try {
       dispatch(showLoading());
